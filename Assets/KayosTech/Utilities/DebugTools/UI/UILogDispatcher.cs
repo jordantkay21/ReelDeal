@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace KayosTech.Utilities.DebugTools
 {
+    /// <summary>
+    /// Listens to log events and visually displays them via prefab instantiation.
+    /// </summary>
     public class UILogDispatcher : MonoBehaviour
     {
         [Header("Message Prefabs")] 

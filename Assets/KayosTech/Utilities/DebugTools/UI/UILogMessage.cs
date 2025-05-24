@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace KayosTech.Utilities.DebugTools
 {
+    /// <summary>
+    /// Controls the appearance and lifecycle of a single UI log message.
+    /// </summary>
     public class UILogMessage : MonoBehaviour
     {
         public TextMeshProUGUI messageText;

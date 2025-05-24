@@ -1,8 +1,10 @@
 using System;
-using UnityEngine;
 
 namespace KayosTech.Utilities.DebugTools
 {
+    /// <summary>
+    /// Represents a single log entry with metadata and formatting logic.
+    /// </summary>
     public struct LogEntry
     {
         public string ScriptName;

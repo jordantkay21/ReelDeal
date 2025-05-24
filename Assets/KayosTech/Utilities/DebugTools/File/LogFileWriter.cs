@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace KayosTech.Utilities.DebugTools
 {
+    /// <summary>
+    /// Static helper for handling log file creation, writing, and cleanup.
+    /// </summary>
     public static class LogFileWriter
     {
         private const int MaxLogFiles = 10;

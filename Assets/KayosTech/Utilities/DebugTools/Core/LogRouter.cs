@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using System.Runtime .CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace KayosTech.Utilities.DebugTools
 {
@@ -37,6 +37,14 @@ namespace KayosTech.Utilities.DebugTools
             LogFileWriter.SaveLogFile();
         }
 
+        /// <summary>
+        /// Logs a message with the specified tag and level.
+        /// </summary>
+        /// <param name="tag">Short context descriptor (e.g., SYSTEM, NETWORK)</param>
+        /// <param name="message">The body of the log message</param>
+        /// <param name="level">Severity level of the log</param>
+        /// <param name="callingMethod">Auto-filled method name of caller</param>
+        /// <param name="callingFile">Auto-filled file path of caller</param>
         public static void Log(string tag, string message, LogLevel level = LogLevel.Internal, [CallerMemberName] string callingMethod = "", [CallerFilePath] string callingFile = "")
         {
             string scriptName = System.IO.Path.GetFileNameWithoutExtension(callingFile);
