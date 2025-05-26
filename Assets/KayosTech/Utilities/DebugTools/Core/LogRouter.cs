@@ -23,9 +23,10 @@ namespace KayosTech.Utilities.DebugTools
     /// </summary>
     public class LogRouter : MonoBehaviour
     {
-        public static event Action<LogEntry> OnLogReceived;
-        public static bool SuppressFrontendLogs { get; set; } = false;
 
+        public static event Action<LogEntry> OnLogReceived;
+        public static bool SuppressFrontendLogs = false;
+        public static bool SaveToFile = true;
 
         private void Awake()
         {
@@ -34,8 +35,11 @@ namespace KayosTech.Utilities.DebugTools
 
         private void OnApplicationQuit()
         {
-            LogFileWriter.SaveLogFile();
+            if(SaveToFile)
+                LogFileWriter.SaveLogFile();
         }
+
+        public static void ClearLogCache() => LogFileWriter.ClearAllLogs();
 
         /// <summary>
         /// Logs a message with the specified tag and level.
@@ -43,11 +47,12 @@ namespace KayosTech.Utilities.DebugTools
         /// <param name="tag">Short context descriptor (e.g., SYSTEM, NETWORK)</param>
         /// <param name="message">The body of the log message</param>
         /// <param name="level">Severity level of the log</param>
-        /// <param name="callingMethod">Auto-filled method name of caller</param>
-        /// <param name="callingFile">Auto-filled file path of caller</param>
+        /// <param name="callingMethod">Auto filled method name of caller</param>
+        /// <param name="callingFile">Auto filled file path of caller</param>
         public static void Log(string tag, string message, LogLevel level = LogLevel.Internal, [CallerMemberName] string callingMethod = "", [CallerFilePath] string callingFile = "")
         {
             string scriptName = System.IO.Path.GetFileNameWithoutExtension(callingFile);
+
 
             LogEntry entry = new LogEntry
             {
@@ -60,7 +65,7 @@ namespace KayosTech.Utilities.DebugTools
             };
 
             string color = LogUtility.GetColorHex(entry.Level);
-            string formatted = $"<color={color}>{entry.Formatted}</color>";
+            string formatted = $"<color={color}>{entry}</color>";
 
             //Console Logging
             switch (level)
@@ -93,8 +98,22 @@ namespace KayosTech.Utilities.DebugTools
 
         private static void HandleFileLog(LogEntry entry)
         {
-            LogFileWriter.AppendToLog(entry.Formatted);
+            LogFileWriter.AppendToLog(entry.ToString());
         }
 
+        public static void TestLog(LogLevel level, bool testAll = false)
+        {
+            if (testAll)
+            {
+                Log("Test", "Test Info Log", LogLevel.Info);
+                Log("Test", "Test Success Log", LogLevel.Success);
+                Log("Test", "Test Alert Log", LogLevel.Alert);
+                Log("Test", "Test Error Log", LogLevel.Error);
+            }
+            else
+            {
+                Log("Test", $"Test {level.ToString()} Log", level);
+            }
+        }
     }
 }

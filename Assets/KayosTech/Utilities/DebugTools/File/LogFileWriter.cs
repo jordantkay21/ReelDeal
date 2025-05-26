@@ -18,7 +18,6 @@ namespace KayosTech.Utilities.DebugTools
 
         public static void ClearAllLogs()
         {
-            //TODO - [DebugLogPanel] include a button to call this method
             string folder = GetLogFolderPath();
 
             if (!Directory.Exists(folder))

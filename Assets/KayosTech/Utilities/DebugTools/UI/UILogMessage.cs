@@ -20,20 +20,10 @@ namespace KayosTech.Utilities.DebugTools
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void Initialize(string message, LogLevel type)
+        public void Initialize(LogEntry log)
         {
-            float lifetime = type switch
-            {
-                LogLevel.Info => 3.0f,
-                LogLevel.Success => 4.0f,
-                LogLevel.Alert => 5.0f,
-                LogLevel.Error => 6.0f,
-                _ => 3.0f
-
-            };
-
-            timer = lifetime;
-            messageText.text = message;
+            timer = log.DisplayTime;
+            messageText.text = log.Message;
         }
 
         void Update()
