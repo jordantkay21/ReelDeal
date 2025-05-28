@@ -27,6 +27,61 @@ MonoBehaviour:
   colorBrightness: 1
   colorGradientsEnabled: 1
   iconRows:
+  - builtinIcons: []
+    customIcons:
+    - sv_icon_name7
+    - sv_icon_name1
+    - sv_icon_name2
+    - sv_icon_name3
+    - sv_icon_name4
+    - sv_icon_name5
+    - sv_icon_name6
+    - sv_icon_name0
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - sv_icon_dot7_pix16_gizmo
+    - sv_icon_dot1_pix16_gizmo
+    - sv_icon_dot2_pix16_gizmo
+    - sv_icon_dot3_pix16_gizmo
+    - sv_icon_dot4_pix16_gizmo
+    - sv_icon_dot5_pix16_gizmo
+    - sv_icon_dot6_pix16_gizmo
+    - sv_icon_dot0_pix16_gizmo
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - sv_icon_dot15_pix16_gizmo
+    - sv_icon_dot9_pix16_gizmo
+    - sv_icon_dot10_pix16_gizmo
+    - sv_icon_dot11_pix16_gizmo
+    - sv_icon_dot12_pix16_gizmo
+    - sv_icon_dot13_pix16_gizmo
+    - sv_icon_dot14_pix16_gizmo
+    - sv_icon_dot8_pix16_gizmo
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - cs Script Icon
+    - Toggle Icon
+    - Button Icon
+    - Slider Icon
+    - Text Icon
+    - debug On
+    - Settings
+    - AssetLabelIconSquare
+    - _Menu
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - Grip_VerticalContainer
+    - Grip_HorizontalContainer
+    - FolderEmpty Icon
+    - Canvas Icon
+    - align_vertically_top_active
+    - align_vertically_center_active
+    - align_vertically_bottom_active
+    enabled: 1
   - builtinIcons:
     - Folder Icon
     - Canvas Icon
@@ -37,7 +92,7 @@ MonoBehaviour:
     - Terrain Icon
     - ScriptableObject Icon
     customIcons: []
-    enabled: 1
+    enabled: 0
   - builtinIcons:
     - Camera Icon
     - ParticleSystem Icon
@@ -45,14 +100,14 @@ MonoBehaviour:
     - Material Icon
     - ReflectionProbe Icon
     customIcons: []
-    enabled: 1
+    enabled: 0
   - builtinIcons:
     - Light Icon
     - DirectionalLight Icon
     - LightmapParameters Icon
     - LightProbes Icon
     customIcons: []
-    enabled: 1
+    enabled: 0
   - builtinIcons:
     - Rigidbody Icon
     - BoxCollider Icon
@@ -61,7 +116,7 @@ MonoBehaviour:
     - WheelCollider Icon
     - MeshCollider Icon
     customIcons: []
-    enabled: 1
+    enabled: 0
   - builtinIcons:
     - AudioSource Icon
     - AudioClip Icon
@@ -69,7 +124,7 @@ MonoBehaviour:
     - AudioEchoFilter Icon
     - AudioReverbZone Icon
     customIcons: []
-    enabled: 1
+    enabled: 0
   - builtinIcons:
     - PreMatCube
     - PreMatSphere
@@ -78,29 +133,14 @@ MonoBehaviour:
     - Favorite
     - Settings Icon
     customIcons: []
-    enabled: 1
-  - builtinIcons: []
-    customIcons:
-    - Toggle Icon
-    - Button Icon
-    - Slider Icon
-    - Text Icon
-    - sv_icon_dot7_pix16_gizmo
-    - debug On
-    enabled: 1
+    enabled: 0
   - builtinIcons: []
     customIcons:
     - Info
     - GreenCheckmark
     - Warning
     - console.erroricon
-    enabled: 1
-  - builtinIcons: []
-    customIcons:
-    - Grip_VerticalContainer
-    - Grip_HorizontalContainer
-    - FolderEmpty Icon
-    enabled: 1
+    enabled: 0
   - builtinIcons: []
     customIcons: []
-    enabled: 1
+    enabled: 0
