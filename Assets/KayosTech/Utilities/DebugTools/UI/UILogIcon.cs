@@ -1,4 +1,5 @@
 using System;
+using KayosTech.Utilities.DebugTools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,8 +7,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class UILogIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public static event Action<bool> OnHoverState;
-    public static event Action OnClicked;
+    public event Action<bool> OnHoverState;
+    public event Action OnClicked;
+    public bool currentActiveState;
+
 
     [Header("Components")]
     [SerializeField] private RawImage iconImage;
@@ -18,7 +21,6 @@ public class UILogIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     [SerializeField] private Color inactiveStateColor;
 
     private Color _currentColor;
-    //private bool _displayLog = true;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class UILogIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
             iconImage = GetComponent<RawImage>();
         }
 
+        _currentColor = activeStateColor;
     }
 
     private void OnEnable()
@@ -36,7 +39,6 @@ public class UILogIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     private void HandleHoverState(bool isHovering)
     {
-        Debug.Log($"LogButton in Hover State {isHovering}");
         iconImage.color = isHovering ? hoverStateColor : _currentColor;
     }
 
@@ -46,14 +48,25 @@ public class UILogIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     public void OnPointerExit(PointerEventData eventData) => OnHoverState?.Invoke(false);
 
-    public void OnPointerClick(PointerEventData eventData) => OnClicked?.Invoke();
+    public void OnPointerClick(PointerEventData eventData) => HandleOnClick();
 
     #endregion
 
-    public void SetNewColor(bool isActive)
+    private void HandleOnClick()
     {
-        _currentColor = isActive ? activeStateColor : inactiveStateColor;
-
-        iconImage.color = _currentColor;
+        //LogRouter.Log("OnClick Invoked", "ToggleActiveStateCalled");
+        OnClicked?.Invoke();
     }
+    public void ToggleActiveState()
+    {
+        bool newState = !currentActiveState;
+
+        string logStatus = newState ? "active" : "inactive";
+        _currentColor = newState ? activeStateColor : inactiveStateColor;
+        
+        currentActiveState = newState;
+        iconImage.color = _currentColor;
+
+    }
+
 }

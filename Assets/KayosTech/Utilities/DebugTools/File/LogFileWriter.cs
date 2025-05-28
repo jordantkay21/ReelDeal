@@ -41,7 +41,7 @@ namespace KayosTech.Utilities.DebugTools
                 }
             }
 
-            LogRouter.Log("Logger", $"Cleared {files.Length} log files.");
+            LogRouter.Log("Logger", $"Cleared {files.Length} log file(s).", LogLevel.ByPass);
         }
 
         public static void InitializeLogFile()

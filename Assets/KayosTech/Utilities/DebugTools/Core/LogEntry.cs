@@ -17,8 +17,7 @@ namespace KayosTech.Utilities.DebugTools
 
         public override string ToString()
         {
-            return $"[{ScriptName}] [{MethodName}]" +
-                                   $"\n [{Level}] [{Tag}]" +
+            return $"[<b>{Tag}</b>] [{Level}] [{ScriptName}] [{MethodName}]" +
                                    $"\n {Timestamp:HH:mm:ss.fff tt}" +
                                    $"\n <b>{Message}</b>";
         }

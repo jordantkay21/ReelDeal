@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Runtime.CompilerServices;
 
@@ -12,7 +12,8 @@ namespace KayosTech.Utilities.DebugTools
         Info, //Developer-readable, can show to player in dev builds
         Success, //Player-visible
         Alert, //Player-visible warning
-        Error //Player-visible error
+        Error, //Player-visible error
+        ByPass //Logs that push to UI no matter user settings
     }
 
 
@@ -31,6 +32,7 @@ namespace KayosTech.Utilities.DebugTools
         private void Awake()
         {
             LogFileWriter.InitializeLogFile();
+            LogTemp("Temp Log Test");
         }
 
         private void OnApplicationQuit()
@@ -49,7 +51,7 @@ namespace KayosTech.Utilities.DebugTools
         /// <param name="level">Severity level of the log</param>
         /// <param name="callingMethod">Auto filled method name of caller</param>
         /// <param name="callingFile">Auto filled file path of caller</param>
-        public static void Log(string tag, string message, LogLevel level = LogLevel.Internal, [CallerMemberName] string callingMethod = "", [CallerFilePath] string callingFile = "")
+        public static void Log(string tag, string message, LogLevel level = LogLevel.Internal,bool highlight = false, [CallerMemberName] string callingMethod = "", [CallerFilePath] string callingFile = "")
         {
             string scriptName = System.IO.Path.GetFileNameWithoutExtension(callingFile);
 
@@ -64,7 +66,10 @@ namespace KayosTech.Utilities.DebugTools
                 Timestamp = DateTime.Now
             };
 
-            string color = LogUtility.GetColorHex(entry.Level);
+            string levelColor = LogUtility.GetColorHex(entry.Level);
+            string highlightColor = "#FA00E4";
+            string color = highlight ? highlightColor : levelColor;
+
             string formatted = $"<color={color}>{entry}</color>";
 
             //Console Logging
@@ -74,16 +79,19 @@ namespace KayosTech.Utilities.DebugTools
                     Debug.Log($"{formatted}");
                     break;
                 case LogLevel.Info:
-                    Debug.Log($"{formatted}");
+                    Debug.Log($"ℹ️ℹ️ℹ️{formatted}");
                     break;
                 case LogLevel.Success:
-                    Debug.Log($"{formatted}");
+                    Debug.Log($"✅✅✅{formatted}");
                     break;
                 case LogLevel.Alert:
-                    Debug.LogWarning($"{formatted}");
+                    Debug.LogWarning($"⚠️⚠️⚠️{formatted}");
                     break;
                 case LogLevel.Error:
-                    Debug.LogError($"{formatted}");
+                    Debug.LogError($"🔥🔥🔥{formatted}");
+                    break;
+                case LogLevel.ByPass:
+                    Debug.Log($"⚡⚡⚡{formatted}");
                     break;
                 default:
                     Debug.Log($"[UNKNOWN LEVEL] {formatted}");
@@ -94,6 +102,11 @@ namespace KayosTech.Utilities.DebugTools
 
             if (!SuppressFrontendLogs)
                 OnLogReceived?.Invoke(entry);
+        }
+
+        public static void LogTemp(string message)
+        {
+            Debug.Log($"<color=#00FFFF>{message}</color>");
         }
 
         private static void HandleFileLog(LogEntry entry)
