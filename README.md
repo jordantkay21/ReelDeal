@@ -1,1 +1,1 @@
-📘 **Full Documentation:** [View on GitBook](https://yourgitbook.gitbook.io/project-name)
+📘 **Full Documentation:** [View on GitBook](https://kayos-tech.gitbook.io/kayos-tech-docs/)
