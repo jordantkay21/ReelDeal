@@ -20,7 +20,7 @@ namespace KayosTech.Utilities.DebugTools
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void Initialize(LogEntry log)
+        public void Initialize(LogEntryDto log)
         {
             timer = log.DisplayTime;
             messageText.text = log.Message;

@@ -5,7 +5,7 @@ namespace KayosTech.Utilities.DebugTools
     /// <summary>
     /// Represents a single log entry with metadata and formatting logic.
     /// </summary>
-    public struct LogEntry
+    public struct LogEntryDto
     {
         public string ScriptName;
         public string MethodName;

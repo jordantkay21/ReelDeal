@@ -164,7 +164,7 @@ namespace KayosTech.Utilities.DebugTools
         #endregion
 
 
-        private void DisplayLog(LogEntry log)
+        private void DisplayLog(LogEntryDto log)
         {
             float timer = log.Level switch
             {
@@ -204,7 +204,7 @@ namespace KayosTech.Utilities.DebugTools
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)messageParent);
 
         }
-        private static UILogMessage HandleUnknownLevel(LogEntry log)
+        private static UILogMessage HandleUnknownLevel(LogEntryDto log)
         {
             LogRouter.Log("LogHandler", $"Unknown log level '{log.Level}' encountered. This log will not be shown in the UI.");
             return null;

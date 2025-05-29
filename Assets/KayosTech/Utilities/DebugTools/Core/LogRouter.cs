@@ -25,7 +25,7 @@ namespace KayosTech.Utilities.DebugTools
     public class LogRouter : MonoBehaviour
     {
 
-        public static event Action<LogEntry> OnLogReceived;
+        public static event Action<LogEntryDto> OnLogReceived;
         public static bool SuppressFrontendLogs = false;
         public static bool SaveToFile = true;
 
@@ -56,7 +56,7 @@ namespace KayosTech.Utilities.DebugTools
             string scriptName = System.IO.Path.GetFileNameWithoutExtension(callingFile);
 
 
-            LogEntry entry = new LogEntry
+            LogEntryDto entryDto = new LogEntryDto
             {
                 ScriptName = scriptName,
                 MethodName = callingMethod,
@@ -66,11 +66,11 @@ namespace KayosTech.Utilities.DebugTools
                 Timestamp = DateTime.Now
             };
 
-            string levelColor = LogUtility.GetColorHex(entry.Level);
+            string levelColor = GetColorHex(entryDto.Level);
             string highlightColor = "#FA00E4";
             string color = highlight ? highlightColor : levelColor;
 
-            string formatted = $"<color={color}>{entry}</color>";
+            string formatted = $"<color={color}>{entryDto}</color>";
 
             //Console Logging
             switch (level)
@@ -98,10 +98,10 @@ namespace KayosTech.Utilities.DebugTools
                     break;
             }
 
-            HandleFileLog(entry);
+            HandleFileLog(entryDto);
 
             if (!SuppressFrontendLogs)
-                OnLogReceived?.Invoke(entry);
+                OnLogReceived?.Invoke(entryDto);
         }
 
         public static void LogTemp(string message)
@@ -109,9 +109,9 @@ namespace KayosTech.Utilities.DebugTools
             Debug.Log($"<color=#00FFFF>{message}</color>");
         }
 
-        private static void HandleFileLog(LogEntry entry)
+        private static void HandleFileLog(LogEntryDto entryDto)
         {
-            LogFileWriter.AppendToLog(entry.ToString());
+            LogFileWriter.AppendToLog(entryDto.ToString());
         }
 
         public static void TestLog(LogLevel level, bool testAll = false)
@@ -127,6 +127,19 @@ namespace KayosTech.Utilities.DebugTools
             {
                 Log("Test", $"Test {level.ToString()} Log", level);
             }
+        }
+
+        private static string GetColorHex(LogLevel level)
+        {
+            return level switch
+            {
+                LogLevel.Info => "#32B5E1",
+                LogLevel.Success => "#32D475",
+                LogLevel.Alert => "#FFB347",
+                LogLevel.Error => "#E94F4F",
+                LogLevel.ByPass => "#FF00FF",
+                _ => "#CCCCCC"
+            };
         }
     }
 }
