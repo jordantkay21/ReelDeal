@@ -1,3 +1,7 @@
+---
+icon: palette
+---
+
 # FRONTEND LAYER
 
 ## PURPOSE
@@ -9,7 +13,7 @@ The **Frontend Layer** is the first and final point of interaction for the user.
 * Receiving UI-ready data and updating the interface appropriately
 * Reflecting system state, success/failure indicators, and feedback
 
-## SUB-LAYERS
+## COMPONENTS
 
 |       Component      |                                              Role                                             |
 | :------------------: | :-------------------------------------------------------------------------------------------: |
@@ -28,9 +32,11 @@ The **Frontend Layer** is the first and final point of interaction for the user.
 3. _**FrontendHandler**_**&#x20;Sends Raw Data →&#x20;**_**FrontendController**_
    1. Raw data is passed via public method call or Unity event binding
    2. _EXAMPLE_**:** `OnConnectionClick()` or `OnPlaylistDropdownChanged(string playlistName)`
-4. _**FrontendController**_**&#x20;Structures into ActionPayload**
-   1. Adds metadata, enum identifiers, or wrappers as needed
-   2. Pushes `ActionPayload` to `FrontendCoordinator` (Bridge Layer)
+4.  _**FrontendController**_**&#x20;Structures into ActionPayload**
+
+    1. Adds metadata, enum identifiers, or wrappers as needed
+
+    > Pushes `ActionPayload` to `FrontendCoordinator` (Bridge Layer)
 {% endtab %}
 
 {% tab title="OUTPUT LOGIC FLOW" %}
@@ -50,34 +56,81 @@ The **Frontend Layer** is the first and final point of interaction for the user.
 
 {% tabs %}
 {% tab title="ActionPayload" %}
-**CONSTRUCTED BY:** FrontendController\
-**CONTAINS:** user intent, raw input, request type\
-**SENT TO:** FrontendCoordinator
+**CONSTRUCTED BY:** `FrontendController`\
+**CONTAINS:** Encoded user intent and contextual data (e.g. action type, parameters, UI metadata)\
+**SENT TO:** `FrontendCoordinator` in the Bridge Layer for evaluation and routing
 {% endtab %}
 
 {% tab title="FrontendResponsePayload" %}
-**RECEIVED BY:** FrontendController\
-**CONTAINS:** final display-ready content (messages, lists, icons, etc.)\
-**SENT TO:** FrontendHandler for UI rendering
+**CONSTRUCTED BY:** `FrontendCoordinator`\
+**CONTAINS:** Final response data structured for display (e.g. messages, visuals, UI states)\
+**SENT TO:** `FrontendController`, which formats the content for display and passes it to `FrontendHandler`
 {% endtab %}
 {% endtabs %}
 
 ## IN PRACTICE
 
-{% tabs %}
-{% tab title="INPUT LOGIC" %}
-1. Player clicks the `CONNECT TO PLEX` button
-2. **FrontendHandler** _captures the click and calls_ `FrontendController.OnConnectRequest()`
-3. **FrontendController** _constructs_ an `ActionPayload` with type `StartDeviceAuthFlow`
-4. The `ActionPayload` is _dispatched_ to the **FrontendCoordinator** in the Bridge Layer
+### INPUT - Plex OAuth Login Flow <sub>(</sub><sub>_Steps 1 - 3)_</sub>
+
+{% tabs fullWidth="false" %}
+{% tab title="STEP ONE" %}
+{% hint style="warning" %}
+⬇️ **START \[USER INPUT]** ⬇️
+{% endhint %}
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td>Player clicks the <code>CONNECT TO PLEX</code> button</td></tr><tr><td><strong>PROCESS</strong></td><td>FrontendHandler captures the click and notifies FrontendController</td></tr><tr><td><strong>RESULT</strong></td><td>FrontendController receives raw input</td></tr></tbody></table>
+
+> WHAT'S HAPPENING?
+>
+> _The player initiates a login by clicking a button. The handler catches this and passes it along to the controller._
 {% endtab %}
 
-{% tab title="OUTPUT LOGIC" %}
-> After the full system flow (device code generation, polling, token retrieval)....
+{% tab title="STEP TWO" %}
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td>Raw input is received by controller</td></tr><tr><td><strong>PROCESS</strong></td><td><code>FrontendController</code> constructs an <code>ActionPayload(type: StartDeviceAuthFlow)</code></td></tr><tr><td><strong>RESULT</strong></td><td>ActionPayload is created and ready for processing</td></tr></tbody></table>
 
-1. A `FrontendResponsePayload` containing the device login state and user metadata is _returned_
-2. **FrontendController** _formats this payload for UI display_: updates button label, shows user avatar, and changes border color to indicate a successful login
-3. **FrontendHandler** _applies these UI changes_ using styles and fonts from the design guide to reflect the connected status
+> WHAT'S HAPPENING?
+>
+> _The controller converts the click into a structured instruction for the rest of the system to act on._
+{% endtab %}
+
+{% tab title="STEP THREE" %}
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td>Payload is sent to the Bridge Layer</td></tr><tr><td><strong>PROCESS</strong></td><td><code>ActionPayload</code> is dispatched to the <code>FrontendCoordinator</code></td></tr><tr><td><strong>RESULT</strong></td><td>System begins processing request</td></tr></tbody></table>
+
+> WHAT'S HAPPENING?
+>
+> _The structured login request is forwarded to the next layer to check cache or contact Plex._
+
+{% hint style="warning" %}
+⬇️ **STEPS 4 - 6 \[FRONTEND LOGIC] ⬇️**
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+
+### OUTPUT - Plex OAuth Login Flow
+
+{% tabs fullWidth="false" %}
+{% tab title="STEP SIXTEEN" %}
+{% hint style="warning" %}
+⬇️ **STEPS 13 - 15 \[BRIDGE LOGIC]** ⬇️
+{% endhint %}
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td><code>FrontendResponsePayload</code> is returned to controller</td></tr><tr><td><strong>PROCESS</strong></td><td>Controller formats it (e.g., updates text, avatar, status color)</td></tr><tr><td><strong>RESULT</strong></td><td>Formatted UI-ready content is sent to <code>FrontendHandler</code></td></tr></tbody></table>
+
+> WHAT'S HAPPENING?
+>
+> Once Plex responds and the Bridge Layer processes the result, the controller updates everything the player will see.
+{% endtab %}
+
+{% tab title="STEP SEVENTEEN" %}
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td>UI is updated</td></tr><tr><td><strong>PROCESS</strong></td><td><code>FrontendHandler</code> applies the visual updates</td></tr><tr><td><strong>RESULT</strong></td><td>Button shows connected status, maybe with username and green indicator</td></tr></tbody></table>
+
+> WHAT'S HAPPENING?
+>
+> The player now sees that they’re successfully connected to Plex with their username and a visual confirmation.
+
+{% hint style="warning" %}
+**⬇️ END \[USER DISPLAY] ⬇️**
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
