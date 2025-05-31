@@ -83,3 +83,4 @@ Executes actual backend operations and prepares responses
 {% endtab %}
 {% endtabs %}
 
+<figure><img src=".gitbook/assets/Logic FLow (4).png" alt=""><figcaption></figcaption></figure>
