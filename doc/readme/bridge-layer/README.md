@@ -99,7 +99,7 @@ The **BRIDGE LAYER** is the logic router and data mediator. It determines:
 > _The system sends a request behind the scenes to Plex asking for a new device login code._
 
 {% hint style="warning" %}
-&#x20;⬇️ **STEPS 7 - 12 \[BACKEND LOGIC] ⬇️**
+&#x20;⬇️ **STEPS 7 - 9 \[BACKEND LOGIC] ⬇️**
 {% endhint %}
 {% endtab %}
 {% endtabs %}
@@ -109,7 +109,7 @@ The **BRIDGE LAYER** is the logic router and data mediator. It determines:
 {% tabs fullWidth="false" %}
 {% tab title="STEP THIRTEEN" %}
 {% hint style="warning" %}
-⬇️ **STEPS 7 - 12 \[BACKEND LOGIC]** ⬇️
+⬇️ **STEPS 10 - 12 \[BACKEND LOGIC]** ⬇️
 {% endhint %}
 
 <table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>TRIGGER</strong></td><td>Backend finishes fetching login code</td></tr><tr><td><strong>PROCESS</strong></td><td><code>BackendCoordinator</code> receives <code>BackendResponsePayload</code> and passes it back to <code>FrontendCoordinator</code></td></tr><tr><td><strong>RESULT</strong></td><td>Device code is returned along with a user code and expiry time</td></tr></tbody></table>
@@ -125,12 +125,6 @@ The **BRIDGE LAYER** is the logic router and data mediator. It determines:
 > **WHAT'S HAPPENING?**
 >
 > _The system saves this info for reuse and prepares a message with the login info for the UI._
->
->
->
-> {% hint style="warning" %}
-> &#x20;⬇️ **STEPS \* - \* \[FRONTEND LOGIC] ⬇️**
-> {% endhint %}
 {% endtab %}
 
 {% tab title="STEP FIFTEEN" %}
@@ -150,7 +144,7 @@ The **BRIDGE LAYER** is the logic router and data mediator. It determines:
 
 {% tabs %}
 {% tab title="INCOMING COMMUNICATION" %}
-<table><thead><tr><th width="181" align="center">SOURCE</th><th width="181" align="center">TARGET</th><th width="152" align="center">DATA TYPE</th><th align="center">PURPOSE</th></tr></thead><tbody><tr><td align="center">FrontendController</td><td align="center">FrontendCoordinator</td><td align="center">ActionPayload</td><td align="center">User-triggered request payload</td></tr><tr><td align="center">FrontendCoordinator</td><td align="center">Manager</td><td align="center">Raw key/value query</td><td align="center">Check for cached data</td></tr><tr><td align="center">FrontendCoordinator</td><td align="center">BackendCoordinator</td><td align="center">BackendPayload</td><td align="center">Request backend operation if no local match</td></tr><tr><td align="center"></td><td align="center">ServiceController</td><td align="center">ServiceDTO</td><td align="center">Pass payload to backend layer</td></tr><tr><td align="center">BackendCoordinator</td><td align="center">FrontendCoordinator</td><td align="center">BackendResponsePayload → <code>FrontendResponsePayload</code> </td><td align="center">Final data packaging for frontend</td></tr></tbody></table>
+<table><thead><tr><th width="181" align="center">SOURCE</th><th width="181" align="center">TARGET</th><th width="152" align="center">DATA TYPE</th><th align="center">PURPOSE</th></tr></thead><tbody><tr><td align="center">FrontendController</td><td align="center">FrontendCoordinator</td><td align="center">ActionPayload</td><td align="center">User-triggered request payload</td></tr><tr><td align="center">FrontendCoordinator</td><td align="center">Manager</td><td align="center">Raw key/value query</td><td align="center">Check for cached data</td></tr><tr><td align="center">FrontendCoordinator</td><td align="center">BackendCoordinator</td><td align="center">BackendPayload</td><td align="center">Request backend operation if no local match</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="OUTPUT COMMUNICATION" %}

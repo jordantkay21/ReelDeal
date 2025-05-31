@@ -1,5 +1,5 @@
 ---
-icon: palette
+icon: tv
 ---
 
 # FRONTEND LAYER
@@ -101,7 +101,7 @@ The **Frontend Layer** is the first and final point of interaction for the user.
 > _The structured login request is forwarded to the next layer to check cache or contact Plex._
 
 {% hint style="warning" %}
-⬇️ **STEPS 4 - 6 \[FRONTEND LOGIC] ⬇️**
+⬇️ **STEPS 4 - 6 \[BRIDGE LOGIC] ⬇️**
 {% endhint %}
 {% endtab %}
 {% endtabs %}
