@@ -123,6 +123,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-12190acf502ebd8418a07750d9ef4c78-1115725879-0
         - globalObjectIdString: GlobalObjectId_V1-2-12190acf502ebd8418a07750d9ef4c78-1367411008-0
         - globalObjectIdString: GlobalObjectId_V1-2-12190acf502ebd8418a07750d9ef4c78-1425820398-0
+        - globalObjectIdString: GlobalObjectId_V1-2-12190acf502ebd8418a07750d9ef4c78-460167136-0
+        - globalObjectIdString: GlobalObjectId_V1-2-12190acf502ebd8418a07750d9ef4c78-719592899-0
         values:
         - colorIndex: 1
           iconNameOrGuid: Canvas Icon
@@ -537,6 +539,14 @@ MonoBehaviour:
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
           iconNameOrGuid: Button Icon
           isIconRecursive: 0
           isColorRecursive: 0
