@@ -1,5 +1,5 @@
 # Table of contents
 
-* [System Architecture Overview](README.md)
-  * [INCOMING LOGIC FLOW](system-architecture-overview/incoming-logic-flow.md)
-  * [OUTGOING LOGIC GLOW](system-architecture-overview/outgoing-logic-glow.md)
+* [Data Lifecycle Documentation](README.md)
+  * [FRONTEND LAYER](readme/frontend-layer.md)
+  * [Page 1](readme/page-1.md)
