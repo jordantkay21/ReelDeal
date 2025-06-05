@@ -27,7 +27,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Backend.Handler
 
             foreach (var log in logs)
             {
-                sb.AppendLine(log.Formatted);
+                sb.AppendLine(log.CacheFormat);
             }
 
             return sb.ToString();

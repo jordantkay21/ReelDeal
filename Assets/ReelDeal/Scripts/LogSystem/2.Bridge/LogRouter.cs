@@ -51,6 +51,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend
         public static void RouteCommand(LogCommandDTO command)
         {
             OnCacheLog?.Invoke(command);
+            OnRenderToUI?.Invoke(command);
         }        
     }
 }

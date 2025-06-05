@@ -25,7 +25,6 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend
         }
         public static void Initialize()
         {
-            Debug.Log($"{Application.persistentDataPath}");
             Application.quitting += HandleQuit;
             LogRouter.OnCacheLog += AcceptCommand; 
         }
@@ -60,13 +59,13 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend
             switch (log.Type)
             {
                 case AppLogType.Error:
-                    Debug.LogError(log.Formatted);
+                    Debug.LogError(log.ConsoleFormat);
                     break;
                 case AppLogType.Alert:
-                    Debug.LogWarning(log.Formatted);
+                    Debug.LogWarning(log.ConsoleFormat);
                     break;
                 default:
-                    Debug.Log(log.Formatted);
+                    Debug.Log(log.ConsoleFormat);
                     break;
             }
         }

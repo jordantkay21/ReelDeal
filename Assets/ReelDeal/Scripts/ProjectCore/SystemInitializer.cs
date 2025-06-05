@@ -2,7 +2,7 @@ using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend;
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend;
 using UnityEngine;
 
-namespace KayosTech.ReelDeal.Prototype.Bootstrap
+namespace KayosTech.ReelDeal.Prototype.Core.Bootstrap
 {
     [DefaultExecutionOrder(-100)]
     public class SystemInitializer : MonoBehaviour
@@ -15,9 +15,9 @@ namespace KayosTech.ReelDeal.Prototype.Bootstrap
             if (autoInitialize)
             {
                 LogRouter.Initialize();
-                Debug.Log("[LogSystem] Router initialized and subscribed to DevLog.");
+                Debug.Log("[SystemInitializer.LogSystem] Router initialized and subscribed to DevLog.");
                 LogStorage.Initialize();
-                Debug.Log("[LogSystem] StorageCoordinator initialized and subscribed to Application.quitting.");
+                Debug.Log("[SystemInitializer.LogSystem] StorageCoordinator initialized and subscribed to Application.quitting.");
             }
         }
     }

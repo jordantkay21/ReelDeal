@@ -6,29 +6,35 @@ public class LogCachePayload : IResponsePayload
 {
     public DataFlow dataFlow => DataFlow.Cache;
     public AppLogType Type { get; }
-    public string Formatted { get; }
+    public string ConsoleFormat { get; }
+    public string CacheFormat { get; }
 
     public LogCachePayload(AppLogType type, string tag, string message, string callerScript, string callerMethod, string sourceSystem, DateTime timestamp, Color color)
     {
 
-        string prefix = $"[{sourceSystem} [{tag}]";
-        string caller = $"[{timestamp:HH:mm:ss}] [{callerScript}.{callerMethod}]";
+        string prefix = $"[{sourceSystem}] [{tag}]";
+        string caller = $"[{timestamp:hh:mm:ss.fff tt}] [{callerScript}.{callerMethod}]";
         string textColor = Utilities.ColorToHex(color);
 
         string typeIndicator = type switch
         {
-            AppLogType.Internal => null,
+            AppLogType.Internal => " ⚙️⚙️⚙️ ",
             AppLogType.Info => " ℹ️ℹ️ℹ️ ",
             AppLogType.Success => " ✅✅✅ ",
             AppLogType.Alert => " ⚠️⚠️⚠️ ",
-            AppLogType.Error => " ❎❎❎ ",
-            AppLogType.Urgent => " 📢📢📢 "
+            AppLogType.Error => " 🛑🛑🛑 ",
+            AppLogType.Urgent => " 📢📢📢 ",
+            _ => null
         };
 
         Type = type;
-        Formatted = $"<color=#{textColor}>{prefix}" + 
-                    $"\n {message}" +
-                    $"\n {caller}</color>";
+        ConsoleFormat = $"{typeIndicator} <color=#{textColor}>{prefix}" + 
+                    $"\n     {caller}" +
+                    $"\n     <b>{message}</b></color>";
+        
+        CacheFormat = $"{typeIndicator} {prefix}" +
+                      $"\n     {caller}" +
+                      $"\n     {message}";
     }
 
 }
