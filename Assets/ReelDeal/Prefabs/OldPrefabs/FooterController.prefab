@@ -254,7 +254,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 115, y: -17.5}
-  m_SizeDelta: {x: 80, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4025279955346506873
 MonoBehaviour:
@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c98a234b6001994397091e49c652319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentActiveState: 0
   iconImage: {fileID: 7772040087201694554}
   hoverStateColor: {r: 1, g: 0.9019608, b: 0, a: 1}
   activeStateColor: {r: 0, g: 1, b: 1, a: 1}

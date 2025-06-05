@@ -15,7 +15,7 @@ namespace KayosTech.Utilities.DebugTools
         [Header("UI Components")] 
         [SerializeField] private UILogSettings logSettings;
 
-        [Header("Message Prefabs")] 
+        [Header("message Prefabs")] 
         [SerializeField] private UILogMessage infoMessagePrefab;
         [SerializeField] private UILogMessage successMessagePrefab;
         [SerializeField] private UILogMessage alertMessagePrefab;
