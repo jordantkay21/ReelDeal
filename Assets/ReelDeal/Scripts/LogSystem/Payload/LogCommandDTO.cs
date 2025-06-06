@@ -6,7 +6,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Payload
 {
     public class LogCommandDTO : ICommandPayload
     {
-        public bool ShowInUI;
+        public bool ShowInUI { get; }
         public AppLogType Type { get; }
         public string Message { get; }
         public string Tag { get; }
@@ -32,7 +32,8 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Payload
            SecondaryColor = secondaryColor;
            Duration = duration;
            FadeDuration = fadeDuration;
-        }
+           ShowInUI = showInUI;
+       }
     }
 
     

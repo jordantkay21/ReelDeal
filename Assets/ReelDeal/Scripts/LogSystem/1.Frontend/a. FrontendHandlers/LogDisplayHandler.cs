@@ -20,6 +20,9 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Frontend
 
         public void Initialize(LogDisplayPayload logDisplay)
         {
+            logCanvas = GetComponent<CanvasGroup>();
+            if(logCanvas == null) Debug.LogWarning("log prefab does not contain a logCanvas which is needed for fading");
+
             logText.color = logDisplay.textColor;
             logText.text = logDisplay.message;
             logOutline.effectColor = logDisplay.outlineColor;
@@ -31,7 +34,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Frontend
         {
             timer -= Time.deltaTime;
 
-            if (timer <= fadeDuration)
+            if (timer <= fadeDuration && logCanvas != null)
             {
                 logCanvas.alpha = Mathf.Clamp01(timer / fadeDuration);
             }

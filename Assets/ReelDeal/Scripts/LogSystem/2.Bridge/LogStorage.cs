@@ -26,7 +26,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend
         public static void Initialize()
         {
             Application.quitting += HandleQuit;
-            LogRouter.OnCacheLog += AcceptCommand; 
+            LogRouter.OnDownstreamCommand += AcceptCommand; 
         }
         private static void HandleQuit()
         {

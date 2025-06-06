@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend;
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Manager;
 using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
-using KayosTech.ReelDeal.Prototype.LogSystem.Settings;
-using KayosTech.Utilities.DebugTools;
 using UnityEngine;
 
 
@@ -12,8 +8,8 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend
 {
     public static class LogRouter
     {
-        public static event Action<LogCommandDTO> OnRenderToUI;
-        public static event Action<LogCommandDTO> OnCacheLog;
+        public static event Action<LogCommandDTO> OnUpstreamCommand;
+        public static event Action<LogCommandDTO> OnDownstreamCommand;
 
         public static void Initialize()
         {
@@ -50,8 +46,10 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend
 
         public static void RouteCommand(LogCommandDTO command)
         {
-            OnCacheLog?.Invoke(command);
-            OnRenderToUI?.Invoke(command);
+            OnDownstreamCommand?.Invoke(command);
+            
+            if(command.ShowInUI)
+                OnUpstreamCommand?.Invoke(command);
         }        
     }
 }
