@@ -2,9 +2,9 @@ using KayosTech.ReelDeal.Prototype.LogSystem.Settings;
 using System;
 using UnityEngine;
 
-namespace KayosTech.ReelDeal.Prototype.LogSystem.Payload
+namespace KayosTech.ReelDeal.Prototype.LogSystem.DataStructure
 {
-    public class LogCommandDTO : ICommandPayload
+    public class LogCommandDTO
     {
         public bool ShowInUI { get; }
         public AppLogType Type { get; }

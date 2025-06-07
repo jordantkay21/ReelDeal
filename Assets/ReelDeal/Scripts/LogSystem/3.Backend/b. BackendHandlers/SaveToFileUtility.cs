@@ -1,4 +1,4 @@
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,8 +17,8 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Backend.Handler
             if (!Directory.Exists(logDirectory))
                 Directory.CreateDirectory(logDirectory);
 
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-            return Path.Combine(logDirectory, $"log_{timestamp}.txt");
+            string timestamp = DateTime.Now.ToString("[MM_dd_yyyy]-[HH_mm_ss tt]");
+            return Path.Combine(logDirectory, $"[log]-{timestamp}.txt");
         }
 
         public static string FormatLogs(IReadOnlyList<LogCachePayload> logs)

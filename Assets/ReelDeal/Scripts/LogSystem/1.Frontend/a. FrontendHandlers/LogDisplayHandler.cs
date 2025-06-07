@@ -1,5 +1,5 @@
 using System;
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace KayosTech.ReelDeal.Prototype.LogSystem.Frontend
 {
     /// <summary>
-    /// Controls the appearance and lifecycle of a single UI log message
+    /// Controls the appearance and lifecycle of a single UI log Message
     /// </summary>
     public class LogDisplayHandler : MonoBehaviour
     {
@@ -23,11 +23,11 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Frontend
             logCanvas = GetComponent<CanvasGroup>();
             if(logCanvas == null) Debug.LogWarning("log prefab does not contain a logCanvas which is needed for fading");
 
-            logText.color = logDisplay.textColor;
-            logText.text = logDisplay.message;
-            logOutline.effectColor = logDisplay.outlineColor;
-            timer = logDisplay.duration;
-            fadeDuration = logDisplay.fadeDuration;
+            logText.color = logDisplay.TextColor;
+            logText.text = logDisplay.Message;
+            logOutline.effectColor = logDisplay.OutlineColor;
+            timer = logDisplay.Duration;
+            fadeDuration = logDisplay.FadeDuration;
         }
 
         private void Update()

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using KayosTech.ReelDeal.Prototype.LogSystem.Settings;
 using UnityEngine;
 

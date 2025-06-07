@@ -1,4 +1,4 @@
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +6,9 @@ using UnityEngine;
 
 namespace KayosTech.ReelDeal.Prototype.LogSystem
 {
-    public interface IActionPayload{ }
-    public interface ICommandPayload { }
-
     public interface IResponsePayload
     {
-        DataFlow dataFlow { get; }
+        DataFlow DataFlow { get; }
     }
 
     public enum DataFlow

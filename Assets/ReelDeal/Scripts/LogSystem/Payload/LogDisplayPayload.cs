@@ -1,25 +1,25 @@
 using UnityEngine;
 
-namespace KayosTech.ReelDeal.Prototype.LogSystem.Payload
+namespace KayosTech.ReelDeal.Prototype.LogSystem.DataStructure
 {
     public class LogDisplayPayload : IResponsePayload
     {
-        public DataFlow dataFlow => DataFlow.Frontend;
+        public DataFlow DataFlow => DataFlow.Frontend;
 
-        public string message { get; }
-        public Color textColor { get; }
-        public Color outlineColor { get; }
-        public float duration { get; }
-        public float fadeDuration { get; }
+        public string Message { get; }
+        public Color TextColor { get; }
+        public Color OutlineColor { get; }
+        public float Duration { get; }
+        public float FadeDuration { get; }
 
 
         public LogDisplayPayload(string message, Color textColor, Color outlineColor, float duration, float fadeDuration)
         {
-            this.message = message;
-            this.textColor = textColor;
-            this.outlineColor = outlineColor;
-            this.duration = duration;
-            this.fadeDuration = fadeDuration;
+            this.Message = message;
+            this.TextColor = textColor;
+            this.OutlineColor = outlineColor;
+            this.Duration = duration;
+            this.FadeDuration = fadeDuration;
         }
     }
 }

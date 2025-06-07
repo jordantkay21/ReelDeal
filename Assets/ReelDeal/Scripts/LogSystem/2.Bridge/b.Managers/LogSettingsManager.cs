@@ -35,7 +35,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Manager
         {
             if (settingsMap == null || !settingsMap.TryGetValue(type, out var setting))
             {
-                Debug.LogWarning($"[LogSettingsManager] Missing settings for log type {type}.");
+                Debug.LogWarning($"[LogSettingsManager] Missing settings for log Type {type}.");
                 return null;
             }
 

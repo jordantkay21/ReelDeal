@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LogCachePayload : IResponsePayload
 {
-    public DataFlow dataFlow => DataFlow.Cache;
+    public DataFlow DataFlow => DataFlow.Cache;
     public AppLogType Type { get; }
     public string ConsoleFormat { get; }
     public string CacheFormat { get; }

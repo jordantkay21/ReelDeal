@@ -1,6 +1,6 @@
 ﻿using System;
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Manager;
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using UnityEngine;
 
 
@@ -19,22 +19,22 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend
         public static void AcceptPayload(LogActionPayload logAction)
         {
 
-            if (string.IsNullOrWhiteSpace(logAction.message))
+            if (string.IsNullOrWhiteSpace(logAction.Message))
             {
                 Debug.LogWarning("LogRouter: Rejected empty log command.");
                 return;
             }
 
-            var settings = LogSettingsManager.Instance.GetSettingsForType(logAction.type);
+            var settings = LogSettingsManager.Instance.GetSettingsForType(logAction.Type);
 
             var command = new LogCommandDTO(
-                logAction.type,
-                logAction.tag,
-                logAction.message,
-                logAction.callerScript,
-                logAction.callerScript,
-                logAction.sourceSystem,
-                logAction.timestamp,
+                logAction.Type,
+                logAction.Tag,
+                logAction.Message,
+                logAction.CallerScript,
+                logAction.CallerScript,
+                logAction.SourceSystem,
+                logAction.Timestamp,
                 settings.primaryColor,
                 settings.secondaryColor,
                 settings.duration,

@@ -15,7 +15,7 @@ namespace KayosTech.Utilities.DebugTools
         [Header("UI Components")] 
         [SerializeField] private UILogSettings logSettings;
 
-        [Header("message Prefabs")] 
+        [Header("Message Prefabs")] 
         [SerializeField] private UILogMessage infoMessagePrefab;
         [SerializeField] private UILogMessage successMessagePrefab;
         [SerializeField] private UILogMessage alertMessagePrefab;
@@ -200,7 +200,7 @@ namespace KayosTech.Utilities.DebugTools
 
             newMsg.Initialize(log);
 
-            //Force layout rebuild so it positions properly on first message
+            //Force layout rebuild so it positions properly on first Message
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)messageParent);
 
         }

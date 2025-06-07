@@ -1,4 +1,4 @@
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using System;
 using System.Collections.Generic;
 using KayosTech.ReelDeal.Prototype.LogSystem.Backend.Handler;

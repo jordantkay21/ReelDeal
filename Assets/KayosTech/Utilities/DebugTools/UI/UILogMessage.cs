@@ -5,7 +5,7 @@ using UnityEngine;
 namespace KayosTech.Utilities.DebugTools
 {
     /// <summary>
-    /// Controls the appearance and lifecycle of a single UI log message.
+    /// Controls the appearance and lifecycle of a single UI log Message.
     /// </summary>
     public class UILogMessage : MonoBehaviour
     {

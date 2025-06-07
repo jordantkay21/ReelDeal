@@ -29,7 +29,7 @@ public class LogManagerEditor : Editor
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("🛠️ Log Type Settings (ScriptableObjects)", EditorStyles.boldLabel);
-        EditorGUILayout.HelpBox("Each log type configuration is stored in a separate .asset file.", MessageType.Info);
+        EditorGUILayout.HelpBox("Each log Type configuration is stored in a separate .asset file.", MessageType.Info);
 
         for (int i = 0; i < soList.arraySize; i++)
         {
@@ -98,6 +98,14 @@ public class LogManagerEditor : Editor
 
         serializedObject.ApplyModifiedProperties();
 
+        EditorGUILayout.Space(8);
+        EditorGUILayout.LabelField("🧪 Testing", EditorStyles.boldLabel);
+
+        if (GUILayout.Button("🧪 TEST ALL LOG TYPES", GUILayout.Height(30)))
+        {
+            EmitAllTestLogs();
+        }
+
         DrawValidationUI();
         DrawAutoAssignButton();
     }
@@ -121,18 +129,26 @@ public class LogManagerEditor : Editor
         }
     }
 
+    private void EmitAllTestLogs()
+    {
+        foreach (AppLogType type in System.Enum.GetValues(typeof(AppLogType)))
+        {
+            EmitTestLog(type);
+        }
+    }
+
     private void EmitTestLog(AppLogType type)
     {
         string message = $"[TEST] This is a {type} log from the LogManagerEditor.";
 
         switch (type)
         {
-            case AppLogType.Info: DevLog.Info(message); break;
-            case AppLogType.Success: DevLog.Success(message); break;
-            case AppLogType.Alert: DevLog.Warning(message); break;
-            case AppLogType.Error: DevLog.Error(message); break;
-            case AppLogType.Internal: DevLog.Info("[INTERNAL] " + message, "InternalTest"); break;
-            case AppLogType.Urgent: DevLog.Info("[URGENT] " + message, "UrgentTest"); break;
+            case AppLogType.Info: DevLog.Info(message, "Editor Test"); break;
+            case AppLogType.Success: DevLog.Success(message, "Editor Test"); break;
+            case AppLogType.Alert: DevLog.Warning(message, "Editor Test"); break;
+            case AppLogType.Error: DevLog.Error(message, "Editor Test"); break;
+            case AppLogType.Internal: DevLog.Internal("[INTERNAL] " + message, "Editor Test"); break;
+            case AppLogType.Urgent: DevLog.Urgent("[URGENT] " + message, "Editor Test"); break;
         }
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   showInUI: 1
-  duration: 5
+  duration: 6
   fadeDuration: 1
   primaryColor: {r: 0.9137255, g: 0.30980393, b: 0.30980393, a: 1}
   secondaryColor: {r: 1, g: 0.6039216, b: 0.6039216, a: 1}

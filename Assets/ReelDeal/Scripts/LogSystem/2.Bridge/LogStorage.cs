@@ -2,7 +2,7 @@
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Manager;
 using KayosTech.ReelDeal.Prototype.LogSystem.Backend.Controller;
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend;
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using UnityEngine;
 using UnityEngine.Rendering;
 

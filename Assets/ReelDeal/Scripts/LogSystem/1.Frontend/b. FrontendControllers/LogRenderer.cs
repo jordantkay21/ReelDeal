@@ -1,8 +1,9 @@
 using System;
 using KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend;
 using KayosTech.ReelDeal.Prototype.LogSystem.Frontend;
-using KayosTech.ReelDeal.Prototype.LogSystem.Payload;
+using KayosTech.ReelDeal.Prototype.LogSystem.DataStructure;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogRenderer : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class LogRenderer : MonoBehaviour
         if (handler != null)
         {
             handler.Initialize(logDisplay);
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform) _logContainer);
         }
         else
         {
