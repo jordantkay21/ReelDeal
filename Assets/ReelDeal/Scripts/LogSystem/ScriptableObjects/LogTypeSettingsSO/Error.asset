@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fc58c8fd528ad4389e4faed484b123, type: 3}
   m_Name: Error
   m_EditorClassIdentifier: 
-  type: 4
+  type: 5
   showInUI: 1
   duration: 6
   fadeDuration: 1

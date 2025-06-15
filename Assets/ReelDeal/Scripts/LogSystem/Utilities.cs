@@ -21,6 +21,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem
     public enum AppLogType
     {
         Internal,
+        Highlight,
         Info,
         Success,
         Alert,

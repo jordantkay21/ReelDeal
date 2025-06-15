@@ -8,13 +8,19 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Frontend
 {
     public static class LogRouter
     {
-        public static event Action<LogCommandDTO> OnUpstreamCommand;
-        public static event Action<LogCommandDTO> OnDownstreamCommand;
+        private static bool isInitialized = false;
 
         public static void Initialize()
         {
+            if (isInitialized) return;
+
             DevLog.OnLogReceived += AcceptPayload;
+            isInitialized = true;
         }
+
+        public static event Action<LogCommandDTO> OnUpstreamCommand;
+        public static event Action<LogCommandDTO> OnDownstreamCommand;
+
 
         public static void AcceptPayload(LogActionPayload logAction)
         {

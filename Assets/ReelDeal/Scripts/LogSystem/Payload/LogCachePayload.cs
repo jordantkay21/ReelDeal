@@ -19,6 +19,7 @@ public class LogCachePayload : IResponsePayload
         string typeIndicator = type switch
         {
             AppLogType.Internal => " ⚙️⚙️⚙️ ",
+            AppLogType.Highlight => " 🔥🔥🔥 ",
             AppLogType.Info => " ℹ️ℹ️ℹ️ ",
             AppLogType.Success => " ✅✅✅ ",
             AppLogType.Alert => " ⚠️⚠️⚠️ ",

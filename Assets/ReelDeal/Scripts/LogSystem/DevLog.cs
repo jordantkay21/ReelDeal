@@ -17,6 +17,12 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem
             Log(message, AppLogType.Internal, tag, callingMethod, callingFile);
         }
 
+        public static void Highlight(string message, string tag = "", [CallerMemberName] string callingMethod = "",
+            [CallerFilePath] string callingFile = "")
+        {
+            Log(message, AppLogType.Highlight, tag, callingMethod, callingFile);
+        }
+
         public static void Info(string message, string tag = "", [CallerMemberName] string callingMethod = "",
             [CallerFilePath] string callingFile = "")
         {
@@ -67,7 +73,19 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem
                 DateTime.Now
             );
 
-            OnLogReceived?.Invoke(actionPayload);
+            if (!LogSystemBuffer.IsReady)
+            {
+                LogSystemBuffer.Enqueue(actionPayload);
+            }
+            else
+            {
+                OnLogReceived?.Invoke(actionPayload);
+            }
+        }
+
+        public static void ForceRoute(LogActionPayload payload)
+        {
+            OnLogReceived?.Invoke(payload);
         }
     }
 }

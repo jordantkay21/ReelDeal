@@ -10,6 +10,22 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend
 {
     public static class LogStorage
     {
+        static LogStorage()
+        {
+            Initialize();
+        }
+
+        private static bool isInitialized = false;
+
+        public static void Initialize()
+        {
+            if (isInitialized) return;
+
+            Application.quitting += HandleQuit;
+            LogRouter.OnDownstreamCommand += AcceptCommand;
+            isInitialized = true;
+        }
+
         public static class LogCache
         {
             private static readonly List<LogCachePayload> CachedLogs = new();
@@ -23,11 +39,7 @@ namespace KayosTech.ReelDeal.Prototype.LogSystem.Bridge.Backend
 
             public static void Clear() => CachedLogs.Clear();
         }
-        public static void Initialize()
-        {
-            Application.quitting += HandleQuit;
-            LogRouter.OnDownstreamCommand += AcceptCommand; 
-        }
+
         private static void HandleQuit()
         {
             if (!LogSettingsManager.Instance.shouldSaveLogsOnExit) return;

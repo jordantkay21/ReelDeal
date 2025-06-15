@@ -139,11 +139,12 @@ public class LogManagerEditor : Editor
 
     private void EmitTestLog(AppLogType type)
     {
-        string message = $"[TEST] This is a {type} log from the LogManagerEditor.";
+        string message = $"This is a {type} log from the LogManagerEditor.";
 
         switch (type)
         {
             case AppLogType.Info: DevLog.Info(message, "Editor Test"); break;
+            case AppLogType.Highlight: DevLog.Highlight($" [HIGHLIGHT] {message}", "Editor Test" ); break;
             case AppLogType.Success: DevLog.Success(message, "Editor Test"); break;
             case AppLogType.Alert: DevLog.Warning(message, "Editor Test"); break;
             case AppLogType.Error: DevLog.Error(message, "Editor Test"); break;
