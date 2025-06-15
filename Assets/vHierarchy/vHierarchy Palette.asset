@@ -71,6 +71,7 @@ MonoBehaviour:
     - Settings
     - AssetLabelIconSquare
     - _Menu
+    - animationdopesheetkeyframe
     enabled: 1
   - builtinIcons: []
     customIcons:
@@ -82,6 +83,14 @@ MonoBehaviour:
     - align_vertically_center_active
     - align_vertically_bottom_active
     enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - TestPassed
+    - Info
+    - alertDialog
+    - CollabError
+    - console.erroricon.sml
+    enabled: 1
   - builtinIcons:
     - Folder Icon
     - Canvas Icon
@@ -91,14 +100,6 @@ MonoBehaviour:
     - EventSystem Icon
     - Terrain Icon
     - ScriptableObject Icon
-    customIcons: []
-    enabled: 0
-  - builtinIcons:
-    - Camera Icon
-    - ParticleSystem Icon
-    - TrailRenderer Icon
-    - Material Icon
-    - ReflectionProbe Icon
     customIcons: []
     enabled: 0
   - builtinIcons:
@@ -141,6 +142,14 @@ MonoBehaviour:
     - Warning
     - console.erroricon
     enabled: 0
-  - builtinIcons: []
+  - builtinIcons:
+    - Camera Icon
+    - ParticleSystem Icon
+    - TrailRenderer Icon
+    - Material Icon
+    - ReflectionProbe Icon
     customIcons: []
     enabled: 0
+  - builtinIcons: []
+    customIcons: []
+    enabled: 1

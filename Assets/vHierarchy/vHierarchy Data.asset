@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 12190acf502ebd8418a07750d9ef4c78
+    - 0bf559de9edca984585ee79ff083dadd
     values:
     - goDatas_byGlobalId:
         keys:
@@ -548,6 +549,604 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 5
           iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-718581494-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1299055509-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1063825616-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-597316640-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1571045983-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1117950913-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1056072489-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1324660977-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-212965221-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-327783070611395632-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-6011510345714508468-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-81791182456074048-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-6141967880685282526-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1451029380-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1469116940-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-577328234-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-516347592-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-428845083-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1254301275-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2090752369-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-700478331-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-759712681-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-6219511118057233009-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1173923114-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-141075058-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-690181464-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-321996866-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1105754309-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1746547981-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2072088177-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1757231205-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-112894505-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1991844850-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1500062573-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1342835189-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1418273381-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-419740887-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1994113331-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1217871829-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2082051484-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1584365857-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1024427459-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1429563777-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-130232746-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1591571895-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-944716750-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-873938240-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-181149657-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2060905118203963024-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2142685488-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1097099755-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-887371873-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-353556926-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1325155-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2079386719-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2012777805-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1376541087-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-342108842-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-19345488-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-871061954-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1156865337-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-669432922-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-814283793-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-494268782-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1234521227-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-181805037-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1657402165-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-47150453-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1511203438-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-827012998-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1302702201-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2114240529-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1247333270-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1848209180-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1297182694-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1433498221-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-602993827-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2110509586-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-253968794-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1784964992-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2146692728-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2016031122-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-688823278-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-695258272-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1152012312-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-339824570-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1118560437-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1467742749-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2146260226-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-506133446-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1360110904-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-360787020-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1760664684-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-516329641-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-502751321-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1711893189-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1711526879-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1602762622-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1522622636-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-431703744-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-507948297-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1144694878-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1115725879-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1367411008-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1425820398-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-460167136-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-719592899-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-8942456982830971132-1622613668625939879
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-4921014487343796452-1622613668625939879
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-7961655916974735570-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-6210026805028382922-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-5966805591187385667-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-7682388588951864667-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-1194677764-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-2125657626-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-242578819-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-448795256-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-755726973-0
+        - globalObjectIdString: GlobalObjectId_V1-2-0bf559de9edca984585ee79ff083dadd-221864007-0
+        values:
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Slider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Warning
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: GreenCheckmark
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: Info
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: console.erroricon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: Slider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Slider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Slider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Grip_VerticalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_VerticalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_VerticalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name6
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name6
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name6
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot6_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot6_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Toggle Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: debug On
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: FolderEmpty Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_VerticalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name2
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot2_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot2_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name7
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot7_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot7_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name7
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot7_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name7
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot7_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name2
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot2_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name2
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot2_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name3
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot3_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot3_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name3
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot3_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name3
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot3_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name5
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot5_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot5_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name5
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot5_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_name5
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot5_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot6_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: sv_icon_dot6_pix16_gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Grip_HorizontalContainer
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Button Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Info
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: TestPassed
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Info
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: alertDialog
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: console.erroricon.sml
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: CollabError
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0

@@ -200,7 +200,7 @@ namespace KayosTech.Utilities.DebugTools
 
             newMsg.Initialize(log);
 
-            //Force layout rebuild so it positions properly on first message
+            //Force layout rebuild so it positions properly on first Message
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)messageParent);
 
         }
