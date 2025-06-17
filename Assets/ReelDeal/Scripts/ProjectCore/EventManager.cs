@@ -1,11 +1,8 @@
-using KayosTech.ReelDeal.Prototype.LogSystem;
-using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Bridge;
-using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Enums;
-using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Factory;
-using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Interfaces;
+using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic;
+using System;
 using UnityEngine;
 
-namespace KayosTech.ReelDeal.Prototype.Core.Event
+namespace KayosTech.ReelDeal.Prototype.Core
 {
     public static class EventManager
     {
@@ -44,6 +41,31 @@ namespace KayosTech.ReelDeal.Prototype.Core.Event
         public static void DispatchServiceCommand(IServiceCommand command)
         {
             OnServiceCommandDispatched?.Invoke(command);
+        }
+        #endregion
+
+        #region Response Event
+
+        public delegate void ResponseDispatched(IResponsePayload response);
+
+        public static event ResponseDispatched OnResponsePayloadDispatched;
+
+        public static void DispatchResponsePayload(IResponsePayload response)
+        {
+            OnResponsePayloadDispatched?.Invoke(response);
+        }
+
+        #endregion
+
+        #region
+
+        public delegate void DisplayDispatched(IDisplayCommand display);
+
+        public static event DisplayDispatched OnDisplayCommandDispatched;
+
+        public static void DispatchDisplayCommand(IDisplayCommand display)
+        {
+            OnDisplayCommandDispatched?.Invoke(display);
         }
 
         #endregion

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace KayosTech.ReelDeal.Prototype.Core.Bootstrap
 {
     [DefaultExecutionOrder(-100)]
-    public class SystemInitializer : MonoBehaviour
+    public class LogSystemInitializer : MonoBehaviour
     {
         [Tooltip("Check to enable logging system initialization on Awake.")]
         public bool autoInitialize = true;

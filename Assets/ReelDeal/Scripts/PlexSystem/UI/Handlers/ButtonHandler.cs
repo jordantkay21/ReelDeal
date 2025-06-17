@@ -1,9 +1,8 @@
-using KayosTech.ReelDeal.Prototype.Core.Event;
-using KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Enums;
+using KayosTech.ReelDeal.Prototype.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.Frontend
+namespace KayosTech.ReelDeal.Prototype.SessionConfiguration.PlexLogic.UI.Handler
 {
     [RequireComponent(typeof(Button))]
     public class ButtonHandler : MonoBehaviour
