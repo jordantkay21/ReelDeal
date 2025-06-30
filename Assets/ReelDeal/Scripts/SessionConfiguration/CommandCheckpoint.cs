@@ -36,6 +36,7 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
     public interface IServiceCommand
     {
         ActionType Action { get; }
+        HttpRequestMessage Request { get; }
     }
 
     public class RegisterDeviceCommand : IServiceCommand

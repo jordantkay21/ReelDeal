@@ -51,7 +51,7 @@ namespace KayosTech.ReelDeal.Prototype
 
         public static event ServiceResponseDispatched OnServiceResponseDispatched;
 
-        public static void DispatchResponseCommand(IServiceResponse response)
+        public static void DispatchServiceResponse(IServiceResponse response)
         {
             DevLog.Highlight($"6 -  Service Response dispatched: \n {response}", "Data Flow");
             OnServiceResponseDispatched?.Invoke(response);
