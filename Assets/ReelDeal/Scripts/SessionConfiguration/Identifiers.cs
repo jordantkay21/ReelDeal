@@ -1,10 +1,15 @@
+using KayosTech.Components;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using UnityEngine;
+using static KayosTech.Components.TMPLinkOpenerWithHover;
 
 namespace KayosTech.ReelDeal.Prototype
 {
     public enum ActionType
     {
+        None,
         RegisterDevice
     }
     public enum DisplayType
@@ -12,13 +17,18 @@ namespace KayosTech.ReelDeal.Prototype
         LinkCode
     }
 
+    public enum DisplayTarget
+    {
+        PlexConnectionWindow,
+    }
+
     #region InteractionDTO
-    public interface IInteractionDTO
+    public interface IIntentDTO
     {
         ActionType Action { get; }
     }
 
-    public sealed class RegisterDeviceIntent:IInteractionDTO
+    public sealed class RegisterDeviceIntent:IIntentDTO
     {
         public ActionType Action => ActionType.RegisterDevice;
     }
@@ -32,11 +42,31 @@ namespace KayosTech.ReelDeal.Prototype
     }
     #endregion
 
-
-    #region Display Handler
-    public interface IDisplayHandler
+    public static class IntentUtilities
     {
-        DisplayType Display { get; }
+        public static IIntentDTO RetrieveIntent(ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.None:
+                    return null;
+                case ActionType.RegisterDevice:
+                    return new RegisterDeviceIntent();
+                default:
+                    throw new NotSupportedException($"Unsupported User Intent: {action}");
+            }
+        }
     }
-    #endregion
+
+    public static class DisplayUtilities
+    {
+        public static void SetLinkActions(TMPLinkOpenerWithHover hoverComponent, List<TMPLinkAction> actions)
+        {
+            var linkActionsField = typeof(TMPLinkOpenerWithHover)
+                .GetField("linkActions", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+            linkActionsField?.SetValue(hoverComponent, actions.ToArray());
+        }
+    }
+
 }

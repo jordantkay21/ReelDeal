@@ -17,7 +17,7 @@ namespace KayosTech.Components
         }
 
         [SerializeField] private TMPLinkAction[] linkActions;
-        [TextArea] [SerializeField] private string originalText;
+        [TextArea] public string originalText;
 
         private TextMeshProUGUI textMesh;
         private int lastLinkIndex = -1;
@@ -80,7 +80,7 @@ namespace KayosTech.Components
             textMesh.text = textMesh.text.Replace(linkInfo.GetLinkText(), $"<color=#{ColorUtility.ToHtmlStringRGB(highlighColor)}>{linkInfo.GetLinkText()}</color>");
         }
 
-        private void RestoreAllLinkColors()
+        public void RestoreAllLinkColors()
         {
             textMesh.text = originalText;
         }

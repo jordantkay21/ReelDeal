@@ -12,11 +12,11 @@ namespace KayosTech.ReelDeal.Prototype
         static EventManager() { }
 
         #region Interaction Event
-        public delegate void InteractionDispatched(IInteractionDTO intent);
+        public delegate void InteractionDispatched(IIntentDTO intent);
 
         public static event InteractionDispatched OnInteractionDispatched;
 
-        public static void DispatchInteraction(IInteractionDTO intent)
+        public static void DispatchInteraction(IIntentDTO intent)
         {
             OnInteractionDispatched?.Invoke(intent);
         }
@@ -53,7 +53,7 @@ namespace KayosTech.ReelDeal.Prototype
 
         public static void DispatchServiceResponse(IServiceResponse response)
         {
-            DevLog.Highlight($"6 -  Service Response dispatched: \n {response}", "Data Flow");
+            DevLog.Highlight($"6 -  Service Response dispatched: \n {response.GetType().Name}", "Data Flow");
             OnServiceResponseDispatched?.Invoke(response);
         }
         #endregion

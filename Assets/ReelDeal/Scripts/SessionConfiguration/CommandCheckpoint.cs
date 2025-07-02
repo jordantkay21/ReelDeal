@@ -1,9 +1,12 @@
 using KayosTech.ReelDeal.Prototype.LogSystem;
 using KayosTech.ReelDeal.Prototype.Managers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Xml.Linq;
 using UnityEngine;
-
+using static KayosTech.Components.TMPLinkOpenerWithHover;
 
 namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
 {
@@ -25,9 +28,9 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
 
         private static void HandleIncomingServiceResponse(Response.IServiceResponse response)
         {
-            DevLog.Highlight($"7 - Service Response received: {response.GetType().Name}", "Data Flow");
-            //TODO - var command = DisplayCommandFactory
-            //EventManager.DispatchDisplayCommand(command);
+            DevLog.Highlight($"7 - Service Response received: {response}", "Data Flow");
+            var command = DisplayCommandFactory.CreateFrom(response);
+            EventManager.DispatchDisplayCommand(command);
         }
 
     }
@@ -39,12 +42,12 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
         HttpRequestMessage Request { get; }
     }
 
-    public class RegisterDeviceCommand : IServiceCommand
+    public class RegisterDeviceServiceCommand : IServiceCommand
     {
         public ActionType Action => ActionType.RegisterDevice;
         public HttpRequestMessage Request { get; }
 
-        public RegisterDeviceCommand(HttpRequestMessage request)
+        public RegisterDeviceServiceCommand(HttpRequestMessage request)
         {
             Request = request;
         }
@@ -58,25 +61,29 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
             switch (action)
             {
                 case Action.RegisterDeviceAction registerDevice:
-                    var request = ServiceCommandUtilities.CreateRegisterRequest();
-                    return new RegisterDeviceCommand(request);                    
+                    var request = HttpRequestBuilderUtility.CreateRegisterRequest();
+                    return new RegisterDeviceServiceCommand(request);
                 default:
                     throw new NotSupportedException($"Unsupported Service Action: {action.GetType().Name}");
             }
         }
     }
-    public static class ServiceCommandUtilities
+    #region Utilities
+    public static class HttpRequestBuilderUtility
     {
         public static HttpRequestMessage CreateRegisterRequest()
         {
             var request = new HttpRequestMessage(HttpMethod.Post, "https://plex.tv/api/v2/pins.xml");
-            ServiceCommandHelpers.AttachHeaders(request);
+            HTTPHelpers.AttachHeaders(request);
 
             return request;
         }
 
     }
-    public static class ServiceCommandHelpers
+    #endregion
+
+    #region Helpers
+    public static class HTTPHelpers
     {
         public static void AttachHeaders(HttpRequestMessage request)
         {
@@ -90,28 +97,108 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
     }
     #endregion
 
+    #endregion
+
     #region Display Command Checkpoint
+    #region Display Command TPOs
     public interface IDisplayCommand
     {
         DisplayType Display { get; }
     }
-    #region Display Command TPOs
 
+    public class LinkCodeDisplayCommand : IDisplayCommand
+    {
+        public DisplayType Display => DisplayType.LinkCode;
+
+        public string Code;
+        public string ID;
+        public string ExpiresAt;
+
+        public readonly string Url = "https://plex.tv/link";
+
+        public LinkCodeDisplayCommand(string code, string id, string expiresAt, Color hoverColor)
+        {
+            Code = code;
+            ID = id;
+            ExpiresAt = expiresAt;
+        }
+
+
+        public override string ToString()
+        {
+            return $"Display Command: DisplayType [{Display}] " +
+                $"\n DATA: Code [{Code}] | ID [{ID}] | ExpiresAt [{ExpiresAt}] | URL [{Url}]"; 
+        }
+    }
+
+    #endregion
+
+    #region Display Command DTOs
+    public interface IDisplayDTO { }
+
+    public class LinkCodeDTO : IDisplayDTO
+    {
+        public string Code;
+        public string ID;
+        public string ExpiresAt;
+        public Color HoverColor;
+    }
     #endregion
 
     public static class DisplayCommandFactory
     {
+        public static IDisplayCommand CreateFrom(Response.IServiceResponse response)
+        {
+            switch (response)
+            {
+                case Response.RegisterDeviceResponse registerDevice:
+                    return CreateLinkIDDisplayCommand(registerDevice.Response);
+                default:
+                    throw new NotSupportedException($"Unsupported Service Response: {response}"); ;
+            }
+        }
 
+        private static LinkCodeDisplayCommand CreateLinkIDDisplayCommand(string rawResponse)
+        {
+            var dto = new LinkCodeDTO();
+            ResponseParserUtility.ParseRegisterDevice(rawResponse, dto);
+
+            return new LinkCodeDisplayCommand(dto.Code, dto.ID, dto.ExpiresAt, dto.HoverColor);
+        }
     }
 
-    public static class DisplayCommandUtilities
+    #region Utilities
+
+    public static class ResponseParserUtility
     {
+        public static void ParseRegisterDevice(string response, LinkCodeDTO dto)
+        {
+            var doc = XDocument.Parse(response);
 
+            dto.Code = DataExtractorHelpers.ExtractData(doc, "code");
+            dto.ID = DataExtractorHelpers.ExtractData(doc, "id");
+            dto.ExpiresAt = DataExtractorHelpers.ExtractData(doc, "expiresAt");
+            dto.HoverColor = Managers.StyleManager.Instance.hoverLinkColor;
+            
+            Managers.SessionManager.PinID = dto.ID;
+        }
     }
 
-    public static class DisplayCommandHelpers
+    #endregion
+
+    #region Helpers
+    public static class DataExtractorHelpers
     {
-
+        public static string ExtractData(XDocument doc, string attribute)
+        {
+            return doc.Root?.Attribute(attribute)?.Value ?? MissingContent(attribute);
+        }
+        public static string MissingContent(string attribute)
+        {
+            throw new InvalidOperationException($"Expected attribute {attribute} was not found in the XML document.");
+        }
     }
+    #endregion
+
     #endregion
 }

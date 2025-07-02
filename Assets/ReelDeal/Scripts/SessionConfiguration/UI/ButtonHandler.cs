@@ -10,7 +10,10 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig
 
         public void HandleInteraction()
         {
-            IInteractionDTO intent = new RegisterDeviceIntent();
+            IIntentDTO intent = IntentUtilities.RetrieveIntent(action);
+
+            if (intent == null) return;
+
             DevLog.Highlight($"RegisterDeviceIntent DTO created and dispatched", $"Action: {ActionType.RegisterDevice}");
             EventManager.DispatchInteraction(intent);
         }
