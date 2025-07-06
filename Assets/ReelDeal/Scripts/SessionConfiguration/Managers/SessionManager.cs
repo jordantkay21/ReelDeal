@@ -1,4 +1,5 @@
 using KayosTech.ReelDeal.Prototype.LogSystem;
+using KayosTech.ReelDeal.Prototype.SessionConfig;
 using System;
 using UnityEngine;
 
@@ -14,9 +15,20 @@ namespace KayosTech.ReelDeal.Prototype.Managers
             set
             {
                 _pinID = value;
-                DevLog.Internal($"PinID set for Device registration: {PinID}", $"Action:{ActionType.RegisterDevice}");
+                DevLog.Internal($"PinID set for Device registration: {PinID}", $"Session Manager | Data Saved");
             }
-        }      
+        }
+
+        private static string _authToken;
+        public static string AuthToken
+        {
+            get => _authToken;
+            set
+            {
+                _authToken = value;
+                DevLog.Internal($"AuthToken set for Account Authorization : {AuthToken}", $"Session Manager | Data Saved");
+            }
+        }
 
         public static string GetClientID()
         {

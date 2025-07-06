@@ -15,7 +15,7 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig
             if (intent == null) return;
 
             DevLog.Highlight($"RegisterDeviceIntent DTO created and dispatched", $"Action: {ActionType.RegisterDevice}");
-            EventManager.DispatchInteraction(intent);
+            EventManager.DispatchServiceIntent(intent);
         }
     }
 }

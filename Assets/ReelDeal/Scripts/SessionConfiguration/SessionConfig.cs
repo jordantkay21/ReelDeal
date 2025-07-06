@@ -1,45 +1,57 @@
-using KayosTech.Components;
-using System;
+using KayosTech.ReelDeal.Prototype.LogSystem;
 using System.Collections.Generic;
 using System.Net.Http;
 using UnityEngine;
-using static KayosTech.Components.TMPLinkOpenerWithHover;
+using System;
 
-namespace KayosTech.ReelDeal.Prototype
+namespace KayosTech.ReelDeal.Prototype.SessionConfig
 {
-    public enum ActionType
+    #region ENUMS
+    public enum ActionType     
     {
         None,
-        RegisterDevice
+        RegisterDevice,
+        PollAuth
     }
     public enum DisplayType
     {
-        LinkCode
+        LinkCode,
+        AuthPollStatus,
+        AccountAuthSuccess
     }
 
     public enum DisplayTarget
     {
         PlexConnectionWindow,
     }
+    #endregion
 
-    #region InteractionDTO
+    #region INTERFACES
     public interface IIntentDTO
     {
         ActionType Action { get; }
     }
-
-    public sealed class RegisterDeviceIntent:IIntentDTO
-    {
-        public ActionType Action => ActionType.RegisterDevice;
-    }
-    #endregion
-
-    #region Service Handler
-
     public interface IInteractionHandler
     {
         public void HandleInteraction();
     }
+    public interface IDisplayHandler
+    {
+        DisplayTarget Target { get; }
+        private void HandleIncomingDisplayAction(Action.IDisplayAction action) { }
+    }
+    #endregion
+
+    #region INTENT DTO
+    public sealed class RegisterDeviceIntent:IIntentDTO
+    {
+        public ActionType Action => ActionType.RegisterDevice;
+    }
+    public sealed class PollAuthIntent : IIntentDTO
+    {
+        public ActionType Action => ActionType.PollAuth;
+    }
+
     #endregion
 
     public static class IntentUtilities
@@ -60,13 +72,6 @@ namespace KayosTech.ReelDeal.Prototype
 
     public static class DisplayUtilities
     {
-        public static void SetLinkActions(TMPLinkOpenerWithHover hoverComponent, List<TMPLinkAction> actions)
-        {
-            var linkActionsField = typeof(TMPLinkOpenerWithHover)
-                .GetField("linkActions", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-            linkActionsField?.SetValue(hoverComponent, actions.ToArray());
-        }
     }
 
 }

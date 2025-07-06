@@ -39,17 +39,37 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
     public interface IServiceCommand
     {
         ActionType Action { get; }
-        HttpRequestMessage Request { get; }
+        HttpMethod Method { get; }
+        string Uri { get; }
+        public HttpRequestMessage BuildRequest()
+        {
+            string pin = SessionManager.PinID;
+            var request = new HttpRequestMessage(Method, Uri);
+            HTTPHelpers.AttachHeaders(request);
+            return request;
+        }
     }
 
-    public class RegisterDeviceServiceCommand : IServiceCommand
+    public class RegisterDeviceCommand : IServiceCommand
     {
         public ActionType Action => ActionType.RegisterDevice;
-        public HttpRequestMessage Request { get; }
+        public HttpMethod Method => HttpMethod.Post;
+        public string Uri => "https://plex.tv/api/v2/pins.xml";
+    }
+    public class PollAuthCommand : IServiceCommand
+    {
+        public ActionType Action => ActionType.PollAuth;
+        public HttpMethod Method => HttpMethod.Get;
+        public string Uri { get; }
 
-        public RegisterDeviceServiceCommand(HttpRequestMessage request)
+        public PollAuthCommand()
         {
-            Request = request;
+            string pin = SessionManager.PinID;
+
+            if (pin == null)
+                throw new NullReferenceException("Failed to retrieve PinID from SessionManager");
+
+            Uri = $"https://plex.tv/pins/{pin}.xml";
         }
     }
 
@@ -61,25 +81,15 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
             switch (action)
             {
                 case Action.RegisterDeviceAction registerDevice:
-                    var request = HttpRequestBuilderUtility.CreateRegisterRequest();
-                    return new RegisterDeviceServiceCommand(request);
+                    return new RegisterDeviceCommand();
+                case Action.PollAuthAction pollAuth:
+                    return new PollAuthCommand();
                 default:
                     throw new NotSupportedException($"Unsupported Service Action: {action.GetType().Name}");
             }
         }
     }
     #region Utilities
-    public static class HttpRequestBuilderUtility
-    {
-        public static HttpRequestMessage CreateRegisterRequest()
-        {
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://plex.tv/api/v2/pins.xml");
-            HTTPHelpers.AttachHeaders(request);
-
-            return request;
-        }
-
-    }
     #endregion
 
     #region Helpers
@@ -131,6 +141,15 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
         }
     }
 
+    public class AccountAuthSuccess : IDisplayCommand
+    {
+        public DisplayType Display => DisplayType.AccountAuthSuccess;
+    }
+
+    public class AccountAuthProcessing : IDisplayCommand
+    {
+        public DisplayType Display => DisplayType.AuthPollStatus;
+    }
     #endregion
 
     #region Display Command DTOs
@@ -149,10 +168,17 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
     {
         public static IDisplayCommand CreateFrom(Response.IServiceResponse response)
         {
-            switch (response)
+            switch (response.Action)
             {
-                case Response.RegisterDeviceResponse registerDevice:
-                    return CreateLinkIDDisplayCommand(registerDevice.Response);
+                case ActionType.RegisterDevice:
+                    return CreateLinkIDDisplayCommand(response.Response);
+                case ActionType.PollAuth:
+                    if (ResponseParserUtility.ParseAuthPollResponse(response.Response))
+                    {
+                        EventManager.IssueStopPollingRequest();
+                        return new AccountAuthSuccess();
+                    }
+                    return new AccountAuthProcessing();
                 default:
                     throw new NotSupportedException($"Unsupported Service Response: {response}"); ;
             }
@@ -181,6 +207,29 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Command
             dto.HoverColor = Managers.StyleManager.Instance.hoverLinkColor;
             
             Managers.SessionManager.PinID = dto.ID;
+        }
+
+        public static bool ParseAuthPollResponse(string xml)
+        {
+            try
+            {
+                var doc = XDocument.Parse(xml);
+                var token = doc.Root?.Element("auth-token")?.Value;
+
+                if (!string.IsNullOrEmpty(token))
+                {
+                    SessionManager.AuthToken = token;
+                    return true;
+                }
+
+                DevLog.Internal("No Auth Token Available");
+                return false;
+            }
+            catch
+            {
+                DevLog.Internal("Error Occured during Token Retrieval");
+                return false;
+            }
         }
     }
 

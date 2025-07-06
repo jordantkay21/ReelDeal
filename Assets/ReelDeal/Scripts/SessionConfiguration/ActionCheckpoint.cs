@@ -15,7 +15,7 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Action
         private static void Init()
         {
             _ = typeof(EventManager);
-            EventManager.OnInteractionDispatched += HandleIncomingInteraction;
+            EventManager.OnServiceIntentDispatched += HandleIncomingInteraction;
             EventManager.OnDisplayCommandDispatched += HandleIncomingDisplayCommand;
         }
         private static void HandleIncomingInteraction(IIntentDTO intent)
@@ -46,6 +46,11 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Action
     {
         public ActionType Action => ActionType.RegisterDevice;
     }
+
+    public class PollAuthAction : IServiceAction
+    {
+        public ActionType Action => ActionType.PollAuth;
+    }
     #endregion
 
     public static class ServiceActionFactory
@@ -56,23 +61,14 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Action
             {
                 case RegisterDeviceIntent registerDevice:
                     return new RegisterDeviceAction();
+                case PollAuthIntent pollAuth:
+                    return new PollAuthAction();
                 default:
                     throw new NotSupportedException($"Unsupported user interaction: {intent.GetType().Name}");
             }
         }
     }
-
-    public static class ServiceActionUtilities
-    {
-
-    }
-
-    public static class ServiceActionHelpers
-    {
-
-    }
     #endregion
-
     #region Display Action Checkpoint
 
     #region Display Action TPOs
@@ -82,17 +78,53 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Action
         DisplayType Display { get; }
     }
 
-    public class LinkCodeDisplayAction : IDisplayAction
+    public interface IDisplayMessage
+    {
+        public string Message { get; }
+    }
+
+    public class LinkCodeMessage : IDisplayAction, IDisplayMessage
     {
         public DisplayTarget Target => DisplayTarget.PlexConnectionWindow;
-        public DisplayType Display => DisplayType.LinkCode;
+        public DisplayType Display => DisplayType.AuthPollStatus;
+        public string Message { get; }
 
-        public string Message;
-
+        public LinkCodeMessage(string message)
+        {
+            Message = message;
+        }
+        public override string ToString()
+        {
+            return $"Target: {Target} " +
+                $"\n Display: {Display} " +
+                $"\n Message: \"{Message}\"";
+        }
+    }
+    public class AuthPollProcessing : IDisplayAction, IDisplayMessage
+    {
+        public DisplayTarget Target => DisplayTarget.PlexConnectionWindow;
+        public DisplayType Display => DisplayType.AuthPollStatus;
+        public string Message => "<b>Account Authorization Still Processing.</b> ";
 
         public override string ToString()
         {
-            return $"[DisplayType: {Display}, Message: \"{Message}\"";
+            return $"Target: {Target} " +
+                $"\n Display: {Display} " +
+                $"\n Message: \"{Message}\"";
+        }
+    }
+    public class AuthPollSuccess : IDisplayAction, IDisplayMessage
+    {
+        public DisplayTarget Target => DisplayTarget.PlexConnectionWindow;
+        public DisplayType Display => DisplayType.AuthPollStatus;
+        public string Message => "<b>Account Authorization Approved.</b> " +
+            "\n Gathering User Account Information.";
+
+        public override string ToString()
+        {
+            return $"Target: {Target} " +
+                $"\n Display: {Display} " +
+                $"\n Message: \"{Message}\"";
         }
     }
     #endregion
@@ -104,21 +136,23 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig.Action
             switch (command)
             {
                 case Command.LinkCodeDisplayCommand linkCode:
-                    return CreateLinkIDDisplay(linkCode);
+                    return CreateDisplayLinkID(linkCode);
+                case Command.AccountAuthProcessing AccAuthProcessing:
+                    return new AuthPollProcessing();
+                case Command.AccountAuthSuccess accAuthSuccess:
+                    return new AuthPollSuccess();
                 default:
                     throw new NotSupportedException($"Unsupported Display Command: {command.GetType().Name}");
             }
         }
 
-        private static LinkCodeDisplayAction  CreateLinkIDDisplay(Command.LinkCodeDisplayCommand command)
+        private static LinkCodeMessage CreateDisplayLinkID(Command.LinkCodeDisplayCommand command)
         {
             var message = DisplayFormattingUtility.FormatLinkCodeMessage(command.Url, command.Code, command.ExpiresAt);
 
-            return new LinkCodeDisplayAction()
-            {
-                Message = message,
-            };
+            return new LinkCodeMessage( message);
         }
+
     }
 
     #region Utilties

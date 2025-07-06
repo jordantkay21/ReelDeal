@@ -10,12 +10,13 @@ using static KayosTech.Components.TMPLinkOpenerWithHover;
 
 namespace KayosTech.ReelDeal.Prototype.SessionConfig
 {
-    public class PlexStatusPanelHandler : MonoBehaviour
+    public class PlexStatusPanelHandler : MonoBehaviour, IDisplayHandler
     {
-        public const DisplayTarget Target = DisplayTarget.PlexConnectionWindow;
+        public DisplayTarget Target => DisplayTarget.PlexConnectionWindow;
 
         [SerializeField] GameObject connectButton;
         [SerializeField] TextMeshProUGUI linkCodeMessage;
+        [SerializeField] TextMeshProUGUI AuthPollStatus;
 
         private void Awake()
         {
@@ -31,17 +32,32 @@ namespace KayosTech.ReelDeal.Prototype.SessionConfig
 
             DevLog.Highlight($"11 - DisplayAction received: {action}", "Data Flow");
 
-            if(action is LinkCodeDisplayAction linkCodeAction)
+            switch (action)
             {
-                connectButton.SetActive(false);
-                linkCodeMessage.gameObject.SetActive(true);
+                case Action.LinkCodeMessage lcMsg:
+                    connectButton.SetActive(false);
+                    linkCodeMessage.gameObject.SetActive(true);
+                    linkCodeMessage.text = lcMsg.Message;
 
-                //Assign the formatted TMP message
-                linkCodeMessage.text = linkCodeAction.Message;
+                    var pollIntent = new PollAuthIntent();
+                    EventManager.DispatchServiceIntent(pollIntent);
+                    break;
+                case Action.AuthPollProcessing apStat:
+                    if (!AuthPollStatus.IsActive())  AuthPollStatus.gameObject.SetActive(true);
+                    AuthPollStatus.text = apStat.Message;
+                    break;
+                case Action.AuthPollSuccess apSucc:
+                    linkCodeMessage.gameObject.SetActive(false);
+                    if (!AuthPollStatus.IsActive()) AuthPollStatus.gameObject.SetActive(true);
+                    AuthPollStatus.text = apSucc.Message;
+                    break;
+                default:
+                    DevLog.Warning($"Unsupported Action Type: {action.GetType().Name}", "Display Routing");
+                    break;
+
+
             }
-
-
-
+            
         }
 
 
